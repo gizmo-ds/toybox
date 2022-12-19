@@ -87,7 +87,7 @@ func Generate(opt ...Option) (string, string) {
 		}
 	}
 	for i := len(positions) - 1; i > 0; i-- {
-		r := utils.RandomRange(0, i)
+		r := utils.RandInt(0, i)
 		t := positions[i]
 		positions[i] = positions[r]
 		positions[r] = t
@@ -109,7 +109,7 @@ func Generate(opt ...Option) (string, string) {
 		case 'A':
 			chars = uppercaseCharSet
 		}
-		s := chars[utils.RandomRange(0, len(chars)-1)]
+		s := chars[utils.RandInt(0, len(chars)-1)]
 		charColor := alphabetColor
 		if strings.Contains(specialCharSet, string(s)) {
 			charColor = specialColor
