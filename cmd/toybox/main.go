@@ -11,12 +11,10 @@ var AppVersion = "development"
 
 func main() {
 	_ = (&cli.App{
-		Name:    "toybox",
-		Usage:   "a toybox for learning",
-		Version: AppVersion,
-		Suggest: true,
-		Commands: []*cli.Command{
-			commands.PasswordGenerator,
-		},
+		Name:     "toybox",
+		Usage:    "a toybox for learning",
+		Version:  AppVersion,
+		Suggest:  true,
+		Commands: commands.Commands,
 	}).Run(os.Args)
 }

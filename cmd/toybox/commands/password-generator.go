@@ -1,3 +1,5 @@
+//go:build cmd_pwdgen
+
 package commands
 
 import (
@@ -6,6 +8,10 @@ import (
 
 	"github.com/urfave/cli/v2"
 )
+
+func init() {
+	Commands = append(Commands, PasswordGenerator)
+}
 
 var PasswordGenerator = &cli.Command{
 	Name:  "pwd",
