@@ -1,11 +1,9 @@
-//go:build cmd_pwdgen
-
 package commands
 
 import (
 	"fmt"
-	pwdgen "toybox/pkg/pwd-gen"
 
+	pwdgen "github.com/gizmo-ds/toybox/pkg/pwd-gen"
 	"github.com/urfave/cli/v2"
 )
 

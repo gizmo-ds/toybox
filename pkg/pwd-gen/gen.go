@@ -2,8 +2,8 @@ package pwdgen
 
 import (
 	"strings"
-	"toybox/internal/utils"
 
+	"github.com/gizmo-ds/toybox/internal/utils"
 	"github.com/gookit/color"
 )
 

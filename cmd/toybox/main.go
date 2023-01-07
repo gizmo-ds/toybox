@@ -2,8 +2,8 @@ package main
 
 import (
 	"os"
-	"toybox/cmd/toybox/commands"
 
+	"github.com/gizmo-ds/toybox/cmd/toybox/commands"
 	"github.com/urfave/cli/v2"
 )
 
