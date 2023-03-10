@@ -9,3 +9,4 @@ a toybox for learning
 ## Features
 
 - Password generator
+- baidu pan rapid tools
