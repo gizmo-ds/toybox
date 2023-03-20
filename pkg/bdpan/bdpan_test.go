@@ -16,7 +16,7 @@ func TestGetFileHash(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "f4f395137a7443ea55e456d59d11ec56", md5)
 	assert.Equal(t, testfile, name)
-	assert.Equal(t, 281486, size)
+	assert.Equal(t, int64(281486), size)
 }
 
 func TestRapidUpload(t *testing.T) {

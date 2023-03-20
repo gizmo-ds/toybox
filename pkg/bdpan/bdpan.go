@@ -1,7 +1,8 @@
 package bdpan
 
 import (
-	"bytes"
+	"crypto/md5"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"io"
@@ -11,7 +12,6 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/gizmo-ds/toybox/internal/utils"
 	"github.com/go-resty/resty/v2"
 )
 
@@ -23,15 +23,18 @@ const (
 
 var client = resty.New()
 
-func GetFileHash(file *os.File) (filename, md5 string, size int, err error) {
+func GetFileHash(file *os.File) (filename, fileHash string, size int64, err error) {
 	filename = filepath.Base(file.Name())
-	var buf bytes.Buffer
-	_, err = io.Copy(&buf, file)
+	fileInfo, err := file.Stat()
 	if err != nil {
 		return
 	}
-	size = buf.Len()
-	md5 = utils.MD5(buf.Bytes())
+	size = fileInfo.Size()
+	hash := md5.New()
+	if _, err = io.Copy(hash, file); err != nil {
+		return
+	}
+	fileHash = hex.EncodeToString(hash.Sum(nil))
 	return
 }
 

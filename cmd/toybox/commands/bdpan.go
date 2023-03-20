@@ -123,11 +123,11 @@ var BDPanTools = &cli.Command{
 				if err != nil {
 					return err
 				}
-				name, md5, size, err := bdpan.GetFileHash(file)
+				name, hash, size, err := bdpan.GetFileHash(file)
 				if err != nil {
 					return err
 				}
-				fmt.Print(strings.Join([]string{md5, strconv.Itoa(size), name}, "#"))
+				fmt.Printf("%s#%d#%s", hash, size, name)
 				return nil
 			},
 		},
